@@ -1,0 +1,101 @@
+aid: western-alliance
+name: Western Alliance Bank
+review:
+  question: Does Western Alliance Bank expose a public first-party developer API, and
+    what is its US open-finance posture (FDX / CFPB 1033 / aggregator)?
+  answer: true
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Western Alliance Bank (subsidiary of Western Alliance Bancorporation, NYSE: WAL)
+    runs a real first-party developer portal — the "WAB API Developer Portal" /
+    "Developer Hub" — at https://developer.westernalliancebank.com/s/, a Salesforce
+    Experience Cloud site that returned HTTP 200 (root 301 -> /s/ -> 200). It exposes
+    a commercial Treasury Management open-banking API that, per Western Alliance's own
+    commercial pages and its published API Services Terms & Conditions, lets approved
+    business clients access balance and transaction information, retrieve check
+    images, initiate funds transfers, and place stop payments directly against WAB
+    systems.
+
+    Access is partner/customer-gated. The portal is a rendered SPA and its API
+    catalog, reference, and specifications sit behind WAB-issued login credentials;
+    no OpenAPI/Swagger is publicly downloadable, so none was harvested. The API
+    Services Terms & Conditions (public PDF, last modified May 14, 2025) define the
+    Developer Hub URL and the auth model verbatim: "API Authentication Credentials"
+    = Client ID + Client Secret + Client Certificate + Token, i.e. OAuth2
+    client-credentials plus a TLS client certificate (mTLS) and an access token
+    issued by the API gateway, across separate Client UAT and Production
+    environments.
+
+    US open-finance posture: this is a COMMERCIAL Treasury Management API, not a
+    consumer permissioned-data-sharing API. No FDX (Financial Data Exchange)
+    participation and no CFPB Section 1033 data-access posture is documented for the
+    institution. Consumer/aggregator access is available indirectly via payment
+    platform partners such as Modern Treasury (https://www.moderntreasury.com/integrations/western-alliance-bank).
+  posture:
+    firstPartyDeveloperPortal: true
+    developerPortalURL: https://developer.westernalliancebank.com/s/
+    portalConfirmedHttp200: true
+    portalPlatform: Salesforce Experience Cloud
+    downloadableOpenAPI: false
+    specProvenance: none (specifications gated behind Developer Hub login credentials)
+    fdxParticipant: false
+    cfpb1033Posture: not documented
+    aggregatorAccess:
+      - Modern Treasury
+    authModel: OAuth2 client credentials (Client ID + Client Secret) + Client Certificate (mTLS) + access Token
+    environments:
+      - UAT
+      - Production
+  apiCapabilitiesDocumented:
+    - Balance and transaction information (information reporting)
+    - Check images
+    - Funds transfers
+    - Stop payments
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: true
+      note: Commercial Treasury Management open-banking API over HTTPS; production gateway host is credential-gated and not publicly documented.
+  probes:
+    - url: https://developer.westernalliancebank.com/s/
+      status: 200
+      note: WAB API Developer Portal (root 301 -> /s/); SPA, catalog behind login.
+    - url: https://developer.westernalliancebank.com/s/apis
+      status: 200
+    - url: https://developer.westernalliancebank.com/s/getting-started
+      status: 200
+    - url: https://developer.westernalliancebank.com/s/login
+      status: 200
+    - url: https://developer.westernalliancebancorporation.com
+      status: 404
+    - url: https://api.westernalliancebancorporation.com
+      status: 404
+    - url: https://www.westernalliancebancorporation.com/commercial/treasury-management
+      status: 200
+    - url: https://www.westernalliancebancorporation.com/sites/default/files/2025-05/api-services-terms-conditions.pdf
+      status: 200
+    - url: https://github.com/westernalliancebank
+      status: 200
+      note: Organization exists but is SSO-gated with no public repositories.
+sources:
+  - url: https://developer.westernalliancebank.com/s/
+    type: DeveloperPortal
+    note: WAB API Developer Portal / Developer Hub; live 200; catalog and specs credential-gated.
+  - url: https://www.westernalliancebancorporation.com/commercial/treasury-management
+    type: Documentation
+    note: 'Names the open-banking APIs: "retrieve transaction history, access check images, initiate transfers and stop payments"; links to developer.westernalliancebank.com.'
+  - url: https://www.westernalliancebancorporation.com/sites/default/files/2025-05/api-services-terms-conditions.pdf
+    type: TermsOfService
+    note: Defines Developer Hub URL and auth model (Client ID, Client Secret, Client Certificate, Token) and UAT/Production environments.
+  - url: https://www.moderntreasury.com/integrations/western-alliance-bank
+    type: Documentation
+    note: Aggregator/partner access to Western Alliance Bank via Modern Treasury (ACH, Wire, Check).
+actions:
+  openapiHarvested: false
+  reason: |
+    No public OpenAPI/Swagger is downloadable; API specifications require WAB-issued
+    Developer Hub credentials. Identity plus honest posture captured; openapi/ left
+    empty. Status: built (real first-party developer portal and commercial API
+    surface confirmed).

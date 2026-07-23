@@ -1,0 +1,71 @@
+aid: western-alliance
+url: https://raw.githubusercontent.com/api-evangelist/western-alliance/refs/heads/main/apis.yml
+name: Western Alliance Bank
+kind: company
+description: >-
+  Western Alliance Bancorporation (NYSE: WAL) is a Phoenix, Arizona based
+  super-regional bank holding company with roughly $80 billion in assets, operating
+  through its principal subsidiary Western Alliance Bank, an Arizona state-chartered
+  commercial bank and member FDIC that runs regional divisions including Alliance Bank
+  of Arizona, Bank of Nevada, Bridge Bank, and Torrey Pines Bank. It is a commercial-
+  and business-banking focused institution rather than a consumer neobank. Western
+  Alliance runs a real first-party developer portal, the WAB API Developer Portal
+  ("Developer Hub") at developer.westernalliancebank.com, exposing commercial
+  Treasury Management open-banking APIs for balance and transaction information,
+  check images, funds transfers, and stop payments. Access is partner/customer-gated:
+  API specifications are downloaded from the Developer Hub only with WAB-issued
+  credentials, and authentication uses OAuth2 client-credentials (Client ID, Client
+  Secret), a Client Certificate (mTLS), and access tokens across UAT and Production
+  environments. Its APIs are also reachable through payment-platform partners such as
+  Modern Treasury. No public consumer FDX or CFPB Section 1033 data-access API is
+  documented, and no OpenAPI/Swagger is publicly downloadable.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial Services
+- Banking
+- United States
+- Treasury Management
+- Open Banking
+- Payments
+- Commercial Banking
+created: '2026-07-23'
+modified: '2026-07-23'
+specificationVersion: '0.19'
+apis:
+- aid: western-alliance:wab-treasury-management-api
+  name: Western Alliance Bank API (Treasury Management)
+  description: Western Alliance Bank's commercial open-banking API lets approved business
+    clients interact directly with WAB systems to access balance and transaction
+    information, retrieve check images, initiate funds transfers, and place stop
+    payments. Documented publicly as an open-banking capability; API specifications
+    and endpoints are gated behind the WAB Developer Hub and issued credentials.
+  humanURL: https://developer.westernalliancebank.com/s/
+  tags:
+  - Treasury Management
+  - Open Banking
+  - Payments
+  properties:
+  - type: Documentation
+    url: https://developer.westernalliancebank.com/s/
+  - type: Documentation
+    url: https://www.westernalliancebancorporation.com/commercial/treasury-management
+  - type: TermsOfService
+    url: https://www.westernalliancebancorporation.com/sites/default/files/2025-05/api-services-terms-conditions.pdf
+common:
+- type: Website
+  url: https://www.westernalliancebancorporation.com/
+- type: DeveloperPortal
+  url: https://developer.westernalliancebank.com/s/
+- type: Documentation
+  url: https://developer.westernalliancebank.com/s/
+- type: GitHubOrganization
+  url: https://github.com/westernalliancebank
+- type: LinkedIn
+  url: https://www.linkedin.com/company/western-alliance-bank
+- type: PrivacyPolicy
+  url: https://www.westernalliancebancorporation.com/privacy-legal-home/privacy-policy
+- type: TermsOfService
+  url: https://www.westernalliancebancorporation.com/sites/default/files/2025-05/api-services-terms-conditions.pdf
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

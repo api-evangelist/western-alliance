@@ -1,0 +1,29 @@
+generated: '2026-07-23'
+method: searched
+source: live probes of /.well-known/* on the WAB Developer Hub + corporate hosts
+host: https://developer.westernalliancebank.com
+note: >-
+  The WAB API Developer Portal is a Salesforce Experience Cloud site. Its
+  /.well-known/openid-configuration is served anonymously and describes the
+  Salesforce Identity IdP that fronts portal login (issuer
+  https://developer.westernalliancebank.com). The scopes_supported it lists are
+  the Salesforce Experience Cloud platform login scopes (cdp_*, pardot_api,
+  wave_api, einstein_gpt_api, mcp_api, api, openid, ...) — these govern portal
+  authentication, NOT the gated Treasury Management API's business scopes, which
+  remain credential-gated behind the Developer Hub. All other well-known paths
+  require an authenticated portal session (401).
+documents:
+- path: /.well-known/openid-configuration
+  status: 200
+  file: western-alliance-openid-configuration.json
+  note: OIDC discovery (RFC 8414 / OpenID Connect Discovery 1.0) for the portal Salesforce Identity IdP.
+- path: /.well-known/oauth-authorization-server
+  status: 401
+- path: /.well-known/security.txt
+  status: 401
+- path: /.well-known/api-catalog
+  status: 401
+corporate_host: https://www.westernalliancebancorporation.com
+corporate_documents:
+- path: /.well-known/security.txt
+  status: 404

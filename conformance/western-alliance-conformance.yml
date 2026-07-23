@@ -1,0 +1,35 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  API Services Terms & Conditions + /.well-known/openid-configuration (WAB Developer Hub);
+  Western Alliance commercial Treasury Management pages
+note: >-
+  Asserted from the provider's published auth model and the anonymous OIDC
+  discovery document only. No FAPI / open-banking security-profile conformance,
+  and no formal compliance certifications (SOC 2 / ISO 27001 / PCI DSS), are
+  publicly documented for the API program, so those are recorded conforms:false.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    Treasury Management API uses OAuth2 client-credentials (Client ID + Client
+    Secret + access Token) per the API Services Terms & Conditions; portal IdP
+    exposes RFC 6749 authorize/token/revoke/introspect endpoints.
+- id: oidc
+  conforms: true
+  evidence: /.well-known/openid-configuration served anonymously (OpenID Connect Discovery 1.0) for the Developer Hub IdP.
+- id: rfc8414-oauth-metadata
+  conforms: true
+  evidence: OAuth 2.0 / OIDC authorization-server metadata published at the well-known discovery path.
+- id: mutual-tls
+  conforms: true
+  evidence: A Client Certificate (mTLS) is a required credential component per the API Services Terms & Conditions.
+- id: fapi
+  conforms: false
+  evidence: No Financial-grade API security-profile conformance is documented.
+- id: fdx
+  conforms: false
+  evidence: No Financial Data Exchange (FDX) participation is documented; this is a commercial Treasury Management API, not a consumer permissioned-data-sharing API.
+- id: cfpb-1033
+  conforms: false
+  evidence: No CFPB Section 1033 consumer data-access posture is documented.

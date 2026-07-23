@@ -52,12 +52,28 @@ apis:
   - type: TermsOfService
     url: https://www.westernalliancebancorporation.com/sites/default/files/2025-05/api-services-terms-conditions.pdf
 common:
+- type: DomainSecurity
+  url: security/western-alliance-domain-security.yml
+- type: Authentication
+  url: authentication/western-alliance-authentication.yml
+- type: Conformance
+  url: conformance/western-alliance-conformance.yml
+- type: WellKnown
+  url: well-known/western-alliance-well-known.yml
+- type: LLMsTxt
+  url: llms/western-alliance-llms.txt
 - type: Website
   url: https://www.westernalliancebancorporation.com/
 - type: DeveloperPortal
   url: https://developer.westernalliancebank.com/s/
 - type: Documentation
   url: https://developer.westernalliancebank.com/s/
+- type: APIReference
+  url: https://developer.westernalliancebank.com/s/apis
+- type: GettingStarted
+  url: https://developer.westernalliancebank.com/s/getting-started
+- type: SignUp
+  url: https://developer.westernalliancebank.com/s/login
 - type: GitHubOrganization
   url: https://github.com/westernalliancebank
 - type: LinkedIn

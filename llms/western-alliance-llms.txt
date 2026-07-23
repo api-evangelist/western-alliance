@@ -1,0 +1,32 @@
+# Western Alliance Bank
+
+> Western Alliance Bancorporation (NYSE: WAL) is a Phoenix, Arizona super-regional bank holding company (~$80B in assets) whose principal subsidiary, Western Alliance Bank (Arizona state-chartered commercial bank, member FDIC), runs a first-party WAB API Developer Portal ("Developer Hub"). It exposes a commercial Treasury Management open-banking API for balance and transaction information, check images, funds transfers, and stop payments. Access is partner/customer-gated: specifications download from the Developer Hub only with WAB-issued credentials, and authentication uses OAuth2 client-credentials (Client ID + Client Secret), a Client Certificate (mTLS), and access tokens across UAT and Production. No public consumer FDX or CFPB Section 1033 data-access API is documented, and no OpenAPI/Swagger is publicly downloadable.
+
+## APIs
+
+- [Western Alliance Bank API (Treasury Management)](https://developer.westernalliancebank.com/s/): Commercial open-banking API for balance and transaction information, check images, funds transfers, and stop payments. Spec and endpoints are gated behind the WAB Developer Hub and issued credentials.
+
+## Docs
+
+- [WAB API Developer Portal / Developer Hub](https://developer.westernalliancebank.com/s/): Salesforce Experience Cloud developer portal; API catalog, reference, and specs behind login.
+- [Getting Started](https://developer.westernalliancebank.com/s/getting-started): Developer Hub onboarding.
+- [API Reference / Catalog](https://developer.westernalliancebank.com/s/apis): Credential-gated API catalog.
+- [Treasury Management (commercial)](https://www.westernalliancebancorporation.com/commercial/treasury-management): Describes the open-banking API capabilities.
+- [API Services Terms & Conditions (PDF)](https://www.westernalliancebancorporation.com/sites/default/files/2025-05/api-services-terms-conditions.pdf): Defines the Developer Hub URL, the auth model, and UAT/Production environments.
+
+## Authentication
+
+- OAuth2 client-credentials (Client ID + Client Secret) + Client Certificate (mTLS) + access token, across UAT and Production. See authentication/western-alliance-authentication.yml.
+- Portal login IdP (Salesforce Identity) OIDC discovery: https://developer.westernalliancebank.com/.well-known/openid-configuration
+
+## Partners
+
+- [Modern Treasury integration](https://www.moderntreasury.com/integrations/western-alliance-bank): Aggregator/partner payment access (ACH, Wire, Check) to Western Alliance Bank.
+
+## Artifacts
+
+- [APIs.json](https://raw.githubusercontent.com/api-evangelist/western-alliance/refs/heads/main/apis.yml)
+- Authentication profile: authentication/western-alliance-authentication.yml
+- Conformance: conformance/western-alliance-conformance.yml
+- Well-known index: well-known/western-alliance-well-known.yml
+- Domain security: security/western-alliance-domain-security.yml

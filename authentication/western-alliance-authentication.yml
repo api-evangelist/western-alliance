@@ -1,0 +1,48 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  API Services Terms & Conditions (https://www.westernalliancebancorporation.com/sites/default/files/2025-05/api-services-terms-conditions.pdf)
+  + /.well-known/openid-configuration on the WAB Developer Hub
+docs: https://developer.westernalliancebank.com/s/
+note: >-
+  No public OpenAPI is downloadable (the Treasury Management API spec is
+  credential-gated behind the WAB Developer Hub), so this profile is derived from
+  the provider's published API Services Terms & Conditions and the anonymously
+  served OIDC discovery document — not from a harvested securitySchemes block.
+summary:
+  types: [oauth2, mutualTLS]
+  oauth2_flows: [clientCredentials]
+  mtls: true
+  environments: [UAT, Production]
+schemes:
+- name: TreasuryManagementOAuth2
+  type: oauth2
+  applies_to: Western Alliance Bank Treasury Management open-banking API
+  flow: clientCredentials
+  credentials:
+  - Client ID
+  - Client Secret
+  - access Token (issued by the API gateway)
+  evidence: >-
+    API Services Terms & Conditions define "API Authentication Credentials" as
+    Client ID + Client Secret + Client Certificate + Token, i.e. OAuth2
+    client-credentials with a token issued per environment (UAT / Production).
+- name: TreasuryManagementClientCertificate
+  type: mutualTLS
+  applies_to: Western Alliance Bank Treasury Management open-banking API
+  evidence: >-
+    A Client Certificate (mutual TLS) is a required component of the API
+    Authentication Credentials alongside the OAuth2 client-credentials pair.
+- name: DeveloperHubPortalOIDC
+  type: openIdConnect
+  applies_to: WAB Developer Hub portal login (Salesforce Experience Cloud IdP) — not the business API
+  issuer: https://developer.westernalliancebank.com
+  authorization_endpoint: https://developer.westernalliancebank.com/services/oauth2/authorize
+  token_endpoint: https://developer.westernalliancebank.com/services/oauth2/token
+  introspection_endpoint: https://developer.westernalliancebank.com/services/oauth2/introspect
+  revocation_endpoint: https://developer.westernalliancebank.com/services/oauth2/revoke
+  jwks_uri: https://developer.westernalliancebank.com/id/keys
+  token_endpoint_auth_methods_supported: [client_secret_post, client_secret_basic, private_key_jwt]
+  id_token_signing_alg_values_supported: [RS256]
+  source: well-known/western-alliance-openid-configuration.json
+  evidence: /.well-known/openid-configuration returns 200 anonymously.

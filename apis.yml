@@ -52,6 +52,8 @@ apis:
   - type: TermsOfService
     url: https://www.westernalliancebancorporation.com/sites/default/files/2025-05/api-services-terms-conditions.pdf
 common:
+- type: Blog
+  url: https://www.westernalliancebancorporation.com/insights
 - type: DomainSecurity
   url: security/western-alliance-domain-security.yml
 - type: Authentication

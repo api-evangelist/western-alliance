@@ -74,7 +74,7 @@ common:
   url: https://developer.westernalliancebank.com/s/apis
 - type: GettingStarted
   url: https://developer.westernalliancebank.com/s/getting-started
-- type: SignUp
+- type: Signup
   url: https://developer.westernalliancebank.com/s/login
 - type: GitHubOrganization
   url: https://github.com/westernalliancebank

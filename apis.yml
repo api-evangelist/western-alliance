@@ -19,6 +19,17 @@ description: >-
   environments. Its APIs are also reachable through payment-platform partners such as
   Modern Treasury. No public consumer FDX or CFPB Section 1033 data-access API is
   documented, and no OpenAPI/Swagger is publicly downloadable.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-11'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Financial Services

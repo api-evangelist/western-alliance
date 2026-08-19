@@ -41,7 +41,7 @@ tags:
 - Commercial Banking
 created: '2026-07-23'
 modified: '2026-07-23'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: western-alliance:wab-treasury-management-api
   name: Western Alliance Bank API (Treasury Management)

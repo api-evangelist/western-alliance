@@ -32,6 +32,14 @@ deliveryModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
+- Financial-Services
+- Banking
+- United States
+- Treasury Management
+- Open Banking
+- Payments
+- Commercial Banking
+tags_raw:
 - Financial Services
 - Banking
 - United States

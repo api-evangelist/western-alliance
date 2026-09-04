@@ -1,38 +1,45 @@
-# Kin Score artifact — western-alliance — 2026-08-03T113057
+# Kin Score artifact — western-alliance — 2026-09-04T062714
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: western-alliance
-  schema_version: 0.9
-  scored_at: '2026-08-03'
-  run_ts: 2026-08-03T113057
-  composite: 27.9
-  band: emerging
+  schema_version: 0.18.2
+  scored_at: '2026-09-04'
+  run_ts: 2026-09-04T062714
+  composite: 27.7
+  band: thin
   facets:
-    discoverability: 77.8
+    discoverability: 66.7
     contract_quality: 0.0
-    governance: 12.5
-    operational_transparency: 5.3
-    developer_ergonomics: 45.7
+    governance: 18.2
+    operational_transparency: 2.6
+    developer_ergonomics: 52.4
     commercial_clarity: 34.2
+    contract_governance: 18.2
+    access_clarity: 34.2
   agent_readiness:
-    score: 12.6
+    score: 10.8
     band: agent-aware
     dimensions:
       spec_presence: false
       agentic_access: false
+      reversibility_documented: false
       mcp_server: false
-      auth_clarity: true
+      auth_clarity: served
       idempotency: false
       error_semantics: false
       openapi_examples: false
       rate_limit_signal: false
       event_surface_described: false
       agent_skills: false
-      well_known_catalog: true
+      well_known_catalog: false
       consent_identity: false
       agent_card: false
       dry_run_mode: false
+      delegated_identity: false
+      protected_resource_metadata: false
+      dynamic_client_registration: true
+      agentic_commerce: false
   regulatory:
     applies: true
     regime: Banking & Open Finance
